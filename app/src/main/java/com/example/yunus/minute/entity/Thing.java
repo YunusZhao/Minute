@@ -12,7 +12,7 @@ public class Thing {
     private String end;
     private String content;
     private int point;
-    private int categoryId;
+    private int genreId;
 
     public Date getDate() {
         return date;
@@ -54,11 +54,11 @@ public class Thing {
         this.point = point;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public int getGenreId() {
+        return genreId;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setGenreId(int genreId) {
+        this.genreId = genreId;
     }
 }

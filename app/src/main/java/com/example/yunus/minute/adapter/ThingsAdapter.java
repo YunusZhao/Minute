@@ -1,5 +1,6 @@
 package com.example.yunus.minute.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.yunus.minute.R;
+import com.example.yunus.minute.activity.thing.AddThingActivity;
 import com.example.yunus.minute.entity.Thing;
 
 import java.util.List;
@@ -44,20 +46,31 @@ public class ThingsAdapter extends RecyclerView.Adapter<ThingsAdapter.ViewHolder
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
+        final View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_thing, parent, false);
-        ViewHolder holder = new ViewHolder(view);
+        final ViewHolder holder = new ViewHolder(view);
+        holder.thing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                Thing thing = mThingList.get(position);
+                Intent intent = new Intent(view.getContext(), AddThingActivity.class);
+                //intent.putExtra(thing);
+                view.getContext().startActivity(intent);
+
+            }
+        });
         return holder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Thing thing = mThingList.get(position);
-        //holder.pic.setImageResource(thing.getCategoryId());
+        //holder.pic.setImageResource(thing.getGenreId());
         holder.content.setText(thing.getContent());
         holder.point.setText("*" + thing.getPoint());
         holder.time.setText(thing.getEnd());
-        //holder.thing.setBackgroundColor(thing.getCategoryId());
+        //holder.thing.setBackgroundColor(thing.getGenreId());
     }
 
     @Override

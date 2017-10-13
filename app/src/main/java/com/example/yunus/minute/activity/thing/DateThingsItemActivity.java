@@ -44,7 +44,6 @@ public class DateThingsItemActivity extends AppBaseActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
         // App Logo
         //toolbar.setLogo(R.drawable);
         // Title
@@ -54,7 +53,7 @@ public class DateThingsItemActivity extends AppBaseActivity {
         setSupportActionBar(toolbar);
         // Navigation Icon 要設定在 setSupoortActionBar 才有作用
         // 否則會出現 back button
-        toolbar.setNavigationIcon(R.drawable.common_icon);
+        toolbar.setNavigationIcon(R.drawable.common_menu);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
